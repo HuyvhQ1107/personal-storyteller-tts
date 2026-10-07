@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "personal-storyteller"
+version = "0.1.0"
+description = "Generate creative stories with a local LLM (Qwen2.5-3B-Instruct) and read them aloud using gTTS."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Personal Storyteller" }]
+keywords = ["tts", "llm", "storytelling", "gtts", "qwen", "transformers"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Project-level dependencies. CLI/runtime deps are duplicated in requirements.txt.
+dependencies = [
+    "gTTS>=2.5.4",
+    "accelerate>=0.27.0",
+    "transformers>=4.40.0",
+    "torch>=2.0.0",
+    "pygame>=2.5.0",
+    "python-dotenv>=1.0.0",
+    "click>=8.1.0",
+    "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+notebook = [
+    "ipython>=8.0.0",
+    "ipywidgets>=8.0.0",
+]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+storyteller = "personal_storyteller.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["personal_storyteller*"]
+exclude = ["tests*", "examples*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

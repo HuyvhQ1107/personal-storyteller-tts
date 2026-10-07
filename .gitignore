@@ -1,0 +1,37 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.pytesttmp/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Local config / secrets
+.env
+
+# Model cache (downloaded by transformers)
+models_cache/
+
+# Generated artifacts
+output/*.mp3
+output/*.wav
+output/*.ogg
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
